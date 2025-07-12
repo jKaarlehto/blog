@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode }}">
+    {{- partial "head.html" . -}}
+    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
+        
+        <main class="page-content" aria-label="Content">
+            <div class="computer-frame-container">
+                <img src="/images/computerFrame.png" class="pixel-bg" alt="Pixel Frame">
+                <div class="screen-content">
+                    <div class="w">
+                        <div class="crt"></div>
+                        <div class="glass"></div>
+                        <div class="w-content">
+                            {{- block "main" . }}{{- end }}
+                            {{ partial "footer.html" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
