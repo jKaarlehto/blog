@@ -34,8 +34,7 @@ html, body {
   left: 12.5%;   /* 1/8 */
   width: 75%;    /* 1 - 2*(1/8) */
   height: 62.5%; /* 1 - 1/8 - 1/4 */
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
