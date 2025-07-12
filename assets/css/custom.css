@@ -234,3 +234,14 @@ html, body {
     0 0 64px 16px rgba(0,0,0,0.10) inset;
   opacity: 0.8;
 }
+
+.glass-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.3; /* Adjust for desired strength */
+  mix-blend-mode: screen; /* Try 'lighten', 'overlay', etc. for different effects */
+  transform: scale(1.25);
+  transform-origin: center center;
+}
