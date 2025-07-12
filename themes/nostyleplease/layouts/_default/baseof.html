@@ -7,17 +7,45 @@
             <div class="computer-frame-container">
                 <img src="/images/computerFrame.png" class="pixel-bg" alt="Pixel Frame">
                 <div class="screen-content">
-                    <div class="w">
-                        <div class="crt"></div>
-                        <div class="glass"></div>
-                        <img src="/images/glass-overlay.png" class="glass-img" alt="Glass Overlay">
-                        <div class="w-content">
-                            {{- block "main" . }}{{- end }}
-                            {{ partial "footer.html" }}
+                    <div class="crt"></div>
+                    <div class="glass"></div>
+                    <img src="/images/overlay.png" class="glass-img" alt="Glass Overlay">
+                    <div class="screen-scale">
+                        <div class="w">
+                            <div class="w-content">
+                                {{- block "main" . }}{{- end }}
+                                {{ partial "footer.html" }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
+        <script>
+        function scaleScreenContent() {
+          const container = document.querySelector('.screen-content');
+          const scaleDiv = document.querySelector('.screen-scale');
+          if (!container || !scaleDiv) return;
+          // Use the container's initial size as the design size
+          let designWidth = scaleDiv.offsetWidth;
+          let designHeight = scaleDiv.offsetHeight;
+          // If not set, fallback to container's size
+          if (!designWidth || !designHeight) {
+            designWidth = container.offsetWidth;
+            designHeight = container.offsetHeight;
+          }
+          const containerWidth = container.offsetWidth;
+          const containerHeight = container.offsetHeight;
+          const scaleX = containerWidth / designWidth;
+          const scaleY = containerHeight / designHeight;
+          const scale = Math.min(scaleX, scaleY);
+          scaleDiv.style.transform = `scale(${scale})`;
+          scaleDiv.style.transformOrigin = 'top left';
+          scaleDiv.style.left = `${(containerWidth - designWidth * scale) / 2}px`;
+          scaleDiv.style.top = `${(containerHeight - designHeight * scale) / 2}px`;
+        }
+        window.addEventListener('resize', scaleScreenContent);
+        window.addEventListener('DOMContentLoaded', scaleScreenContent);
+        </script>
     </body>
 </html>
