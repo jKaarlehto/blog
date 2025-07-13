@@ -4,7 +4,7 @@ title = '//end-if'
 theme = 'nostyleplease'
 
 [params]
-  favicon = "/favicon-16x16.png"
+  favicon = false
 
 [taxonomies]
   category = "categories"

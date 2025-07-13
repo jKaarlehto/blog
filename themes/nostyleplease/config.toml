@@ -31,7 +31,7 @@
     ordered    = false
 
 [params]
-  favicon = "/favicon-16x16.png"
+  favicon = false
   [params.theme_config]
     appearance        = "dark"
     back_home_text    = ".."
