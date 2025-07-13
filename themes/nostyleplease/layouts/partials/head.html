@@ -12,9 +12,9 @@
     {{ end }}
   </title>
 
-
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" sizes="16x16"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+ 
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
   {{ $sass := resources.Get "css/main.scss" }}
   {{ $style := $sass | css.Sass $options | resources.Fingerprint "sha512" }}
