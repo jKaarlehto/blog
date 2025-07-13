@@ -1,20 +1,16 @@
 +++
 date = '2025-07-05T00:07:28+03:00'
 draft = false
-title = 'My first blog post! ヽ(・∀・)ﾉ'
+title = 'This could be an article! ヽ(・∀・)ﾉ'
 categories = ["test"]
 +++
 
-
-
-					Is this a code block?
-	
-`hello`
 ```
-what the hell
+Hi
 ```
+This is just a placeholder to test things out.
 1. cat
-2. another
+2. another one
 
 ```text
  /\_/\  

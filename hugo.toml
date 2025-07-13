@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = '//end-if'
 theme = 'nostyleplease'
 
+[params]
+  favicon = "/favicon-16x16.png"
+
 [taxonomies]
   category = "categories"
   tag = "tags"
