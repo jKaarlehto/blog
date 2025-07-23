@@ -8,7 +8,6 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0;
 }
 
 .pixel-bg {
@@ -18,14 +17,16 @@ html, body {
   image-rendering: pixelated;
   pointer-events: none;
   user-select: none;
+  
 }
-
 
 
 .scale-wrapper {
     width: 800px;
-    height: 800px;
-    overflow: auto;
+    height: 800px; 
+    box-sizing:content-box;
+    overflow: auto;  
+    padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,14 +35,17 @@ html, body {
 .computer-frame-container {
     transform-origin: center;
     position: relative;
-    width: 100%; /* or 100%, or whatever you want */
+    width: 100%; 
     margin: 0;
     transition: transform 0.5s ease;
     aspect-ratio: 1/1;
+    filter: drop-shadow(0 8px 32px rgba(0,0,0,0.45));
 }
 
-@media (max-width: 800px) {
-    .scale-wrapper{ zoom: calc(100vw / 800px); }
+@media (max-width: 900px) { /* wrapper size plus padding*/
+    .scale-wrapper{
+	zoom: calc(100vw / 900px); 
+    }
   }
 
 
