@@ -15,16 +15,22 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" sizes="16x16"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
  
-  {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
-  {{ $sass := resources.Get "css/main.scss" }}
-  {{ $style := $sass | css.Sass $options | resources.Fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}" />
-  <!-- Your custom CSS -->
+  {{ if .IsHome }} 
+  {{ $home := resources.Get "css/index.css" | minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $home.RelPermalink }}">
+  {{end}}
+
+
   {{ $customCss := resources.Get "css/custom.css" }}
   {{ if $customCss }}
   {{ $customStyle := $customCss | minify | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $customStyle.Permalink | relURL }}" integrity="{{ $customStyle.Data.Integrity }}" />
-  {{ end }}
+  {{end}}
 
+  {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+  {{ $sass := resources.Get "css/main.scss" }}
+  {{ $style := $sass | css.Sass $options | resources.Fingerprint "sha512" }}
+
+  <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}" />
   {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
 </head>
